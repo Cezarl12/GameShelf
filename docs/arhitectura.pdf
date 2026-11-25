@@ -1,0 +1,104 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 4985 >>
+stream
+BT /F2 16 Tf 48 790 Td (Document de Arhitectura - GameShelf \(CBBFL\)) Tj ET
+BT /F2 12 Tf 48 762 Td (1. Prezentare generala \(High-Level Architecture\)) Tj ET
+BT /F1 10 Tf 48 748 Td (GameShelf este o aplicatie web pentru gestionarea bibliotecii personale de jocuri video:) Tj ET
+BT /F1 10 Tf 48 734 Td (- Client \(Frontend\): Single Page Application in React + TypeScript + Vite + Tailwind CSS.) Tj ET
+BT /F1 10 Tf 48 720 Td (- Server \(Backend\): REST API stateless in Node.js + Express + TypeScript.) Tj ET
+BT /F1 10 Tf 48 706 Td (- Baza de date: PostgreSQL \(users, games, user_games\).) Tj ET
+BT /F1 10 Tf 48 692 Td (- Serviciu extern: RAWG Video Games Database API pentru cautarea jocurilor.) Tj ET
+BT /F3 9 Tf 48 678 Td ([Client React] --\(HTTPS/JSON + JWT\)--> [REST API Express] --\(SQL\)--> [PostgreSQL]) Tj ET
+BT /F3 9 Tf 48 664 Td (                                                |) Tj ET
+BT /F3 9 Tf 48 650 Td (                                     \(HTTPS + API Key, Cache 10m\)) Tj ET
+BT /F3 9 Tf 48 636 Td (                                                v) Tj ET
+BT /F3 9 Tf 48 622 Td (                                         [API Extern RAWG]) Tj ET
+BT /F2 12 Tf 48 600 Td (2. Structura backend pe straturi) Tj ET
+BT /F3 9 Tf 48 586 Td (routes/ --> controllers/ --> services/ --> repositories/) Tj ET
+BT /F3 9 Tf 48 572 Td (  ^              ^) Tj ET
+BT /F3 9 Tf 48 558 Td (  +-- middleware/ \(Auth JWT, Validare Zod, Rate Limiting, Erori Globale\)) Tj ET
+BT /F1 10 Tf 48 544 Td (- routes/: Definire rute HTTP si atasare middleware.) Tj ET
+BT /F1 10 Tf 48 530 Td (- controllers/: Extragere date din request si formatare raspunsuri HTTP.) Tj ET
+BT /F1 10 Tf 48 516 Td (- services/: Logica de business \(authService, libraryService, gamesService, profileService\).) Tj ET
+BT /F1 10 Tf 48 502 Td (- repositories/: Interfete si implementari de acces la date.) Tj ET
+BT /F1 10 Tf 48 488 Td (- middleware/: Auth JWT, validare Zod, express-rate-limit, handler global de erori.) Tj ET
+BT /F1 10 Tf 48 474 Td (- utils/: Erori HTTP \(AppError\), MemoryCache \(TTL 10 min\), scheme Zod.) Tj ET
+BT /F2 12 Tf 48 452 Td (3. Pattern-uri arhitecturale si de design) Tj ET
+BT /F1 10 Tf 48 438 Td (- MVC adaptat pentru REST API: separare rute/controllere, servicii si frontend.) Tj ET
+BT /F1 10 Tf 48 424 Td (- Repository Pattern: IUserRepository, IGameRepository, ILibraryRepository.) Tj ET
+BT /F1 10 Tf 48 410 Td (- Middleware Pipeline: helmet, cors, JWT auth, validare Zod, rate limiting, erori.) Tj ET
+BT /F2 12 Tf 48 388 Td (4. Lista endpoint-urilor REST) Tj ET
+BT /F3 9 Tf 48 374 Td (GET    /api/health           \(Public\)  Verificare stare server { status: ok }) Tj ET
+BT /F3 9 Tf 48 360 Td (POST   /api/auth/register    \(Public\)  Inregistrare utilizator nou \(bcrypt + JWT\)) Tj ET
+BT /F3 9 Tf 48 346 Td (POST   /api/auth/login       \(Public\)  Autentificare si emitere token JWT \(24h\)) Tj ET
+BT /F3 9 Tf 48 332 Td (GET    /api/games/search?q=  \(Public\)  Cautare jocuri RAWG \(cache 10 min\)) Tj ET
+BT /F3 9 Tf 48 318 Td (GET    /api/games/:rawgId    \(Public\)  Detalii joc din RAWG) Tj ET
+BT /F3 9 Tf 48 304 Td (GET    /api/library          \(Auth\)    Lista jocuri cu filtrare, sortare, paginare) Tj ET
+BT /F3 9 Tf 48 290 Td (POST   /api/library          \(Auth\)    Adaugare joc in biblioteca \(RAWG -> games\)) Tj ET
+BT /F3 9 Tf 48 276 Td (PATCH  /api/library/:id      \(Auth\)    Actualizare status, rating \(1-10\), review) Tj ET
+BT /F3 9 Tf 48 262 Td (DELETE /api/library/:id      \(Auth\)    Stergere joc din biblioteca) Tj ET
+BT /F3 9 Tf 48 248 Td (GET    /api/me               \(Auth\)    Profil utilizator curent \(fara password_hash\)) Tj ET
+BT /F3 9 Tf 48 234 Td (PATCH  /api/me               \(Auth\)    Actualizare username si avatarUrl) Tj ET
+BT /F3 9 Tf 48 220 Td (GET    /api/me/stats         \(Auth\)    Statistici biblioteca si nota medie) Tj ET
+BT /F3 9 Tf 48 206 Td (DELETE /api/me               \(Auth\)    Stergere cont si biblioteca \(GDPR\)) Tj ET
+BT /F2 12 Tf 48 184 Td (5. Schema bazei de date \(docs/design/er-diagram.png\)) Tj ET
+BT /F1 10 Tf 48 170 Td (- users: id \(UUID PK\), email \(UK\), password, username, avatar_url, created_at.) Tj ET
+BT /F1 10 Tf 48 156 Td (- games: id \(UUID PK\), rawg_id \(UK\), title, cover_url, platform, release_year, genres.) Tj ET
+BT /F1 10 Tf 48 142 Td (- user_games: id \(UUID PK\), user_id \(FK\), game_id \(FK\), status, rating, review, added_at, updated_at.) Tj ET
+BT /F2 12 Tf 48 120 Td (6. Plan pentru atribute de calitate) Tj ET
+BT /F1 10 Tf 48 106 Td (- Securitate: JWT 24h, bcrypt \(cost 10\), Zod validation \(400 fara detalii interne\),) Tj ET
+BT /F1 10 Tf 48 92 Td (  helmet, CORS strict \(FRONTEND_URL\), express-rate-limit pe /api/auth/* \(10 req/min -> 429\).) Tj ET
+BT /F1 10 Tf 48 78 Td (- Performanta: Cache in memorie 10 min pentru RAWG; paginare pe /api/library \(max 50\).) Tj ET
+BT /F1 10 Tf 48 64 Td (- Scalabilitate: Backend stateless cu JWT, containerizare Docker Compose.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 625 >>
+stream
+BT /F2 12 Tf 48 782 Td (7. Diagrama de deploy \(Docker Compose\)) Tj ET
+BT /F3 9 Tf 48 768 Td ([Browser] --\(80/5173\)--> [Frontend React] --\(/api/*:3000\)--> [Backend Express]) Tj ET
+BT /F3 9 Tf 48 754 Td (                                                                |           |) Tj ET
+BT /F3 9 Tf 48 740 Td (                                                           \(5432\)      \(HTTPS\)) Tj ET
+BT /F3 9 Tf 48 726 Td (                                                                v           v) Tj ET
+BT /F3 9 Tf 48 712 Td (                                                         [PostgreSQL]  [RAWG API]) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000266 00000 n 
+0000000334 00000 n 
+0000005371 00000 n 
+0000005517 00000 n 
+0000006193 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+6339
+%%EOF
