@@ -1,15 +1,23 @@
+import { Card } from '../components/common';
+
 function SearchPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-6">
-      <div className="bg-surface border border-border rounded-xl p-8 max-w-md w-full text-center">
-        <h1 className="font-display text-2xl font-bold text-text-primary">
+    <section className="space-y-6">
+      <div>
+        <h1 className="font-display text-3xl font-bold text-text-primary">
           Căutare jocuri
         </h1>
-        <p className="mt-2 text-sm text-text-secondary">
-          Pagina de căutare (/search) — urmează implementarea în SCRUM-151.
+        <p className="mt-1 text-sm text-text-secondary">
+          Caută jocuri și adaugă-le în biblioteca ta personală.
         </p>
       </div>
-    </main>
+
+      <Card padding="lg" className="text-center">
+        <p className="text-sm text-text-secondary">
+          Pagina de căutare (/search) — urmează implementarea în SCRUM-151.
+        </p>
+      </Card>
+    </section>
   );
 }
 

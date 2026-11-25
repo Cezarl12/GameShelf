@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <rect x="4" y="6" width="48" height="48" rx="12" fill="#4F46E5" />
+  <rect x="12" y="42" width="32" height="4" rx="2" fill="#F8FAFC" />
+  <rect x="14" y="20" width="6" height="20" rx="1.5" fill="#10B981" />
+  <rect x="22" y="16" width="6" height="24" rx="1.5" fill="#F8FAFC" />
+  <rect x="30" y="22" width="6" height="18" rx="1.5" fill="#A5B4FC" />
+  <rect x="38" y="18" width="6" height="22" rx="1.5" fill="#F8FAFC" transform="rotate(8 38 18)" />
+  <text x="64" y="38" font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="24" fill="#0F172A">
+    Game<tspan fill="#4F46E5">Shelf</tspan>
+  </text>
+</svg>
