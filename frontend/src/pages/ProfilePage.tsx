@@ -1,15 +1,23 @@
+import { Card } from '../components/common';
+
 function ProfilePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-6">
-      <div className="bg-surface border border-border rounded-xl p-8 max-w-md w-full text-center">
-        <h1 className="font-display text-2xl font-bold text-text-primary">
+    <section className="space-y-6">
+      <div>
+        <h1 className="font-display text-3xl font-bold text-text-primary">
           Profil și statistici
         </h1>
-        <p className="mt-2 text-sm text-text-secondary">
-          Pagina de profil (/profile) — urmează implementarea în SCRUM-154.
+        <p className="mt-1 text-sm text-text-secondary">
+          Datele contului și statisticile bibliotecii tale.
         </p>
       </div>
-    </main>
+
+      <Card padding="lg" className="text-center">
+        <p className="text-sm text-text-secondary">
+          Pagina de profil (/profile) — urmează implementarea în SCRUM-154.
+        </p>
+      </Card>
+    </section>
   );
 }
 

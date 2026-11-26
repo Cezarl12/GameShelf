@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom';
+import { Button, Card } from '../components/common';
 
 function NotFoundPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-6">
-      <div className="bg-surface border border-border rounded-xl p-8 max-w-md w-full text-center">
-        <h1 className="font-display text-4xl font-bold text-primary">404</h1>
-        <p className="mt-2 text-sm text-text-secondary">
-          Pagina pe care o cauți nu există.
+    <div className="mx-auto max-w-md py-12">
+      <Card padding="lg" className="text-center">
+        <h1 className="font-display text-5xl font-bold text-primary">404</h1>
+        <p className="mt-3 text-base font-medium text-text-primary">
+          Pagina nu a fost găsită
         </p>
-        <Link
-          to="/library"
-          className="mt-6 inline-block rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover"
-        >
-          Înapoi la bibliotecă
-        </Link>
-      </div>
-    </main>
+        <p className="mt-1 text-sm text-text-secondary">
+          Pagina pe care o cauți nu există sau a fost mutată.
+        </p>
+        <div className="mt-6">
+          <Link to="/library">
+            <Button variant="primary">Înapoi la bibliotecă</Button>
+          </Link>
+        </div>
+      </Card>
+    </div>
   );
 }
 

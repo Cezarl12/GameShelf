@@ -1,5 +1,7 @@
 # Proiect IS2 (CBBFL)
 
+[![CI](https://github.com/Cezarl12/GameShelf/actions/workflows/ci.yml/badge.svg)](https://github.com/Cezarl12/GameShelf/actions/workflows/ci.yml)
+
 Monorepo pentru aplicația de gestionare a bibliotecii de jocuri.
 
 ## Structură
